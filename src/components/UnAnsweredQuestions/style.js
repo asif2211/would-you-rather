@@ -7,14 +7,13 @@ export const TabContainer = styled.div`
   margin:0 auto;
   
   `
-
-export const Contact_list = styled.ol `
+export const ContactList = styled.ol `
     width: 100%;
     margin: 0;
     padding: 0;
     list-style-type: none;
   `
-  export const Contact_list_item = styled.li`
+  export const ContactListItem = styled.li`
     padding: 20px;
     background: white;
     display: flex;
@@ -25,7 +24,7 @@ export const Contact_list = styled.ol `
       border-radius: 4px;
     }
   `
- export const  Contact_details = styled.div`
+ export const  ContactDetails = styled.div`
   padding-left: 20px;
   border-left: 1px solid #eee;
   flex: 1;
@@ -34,8 +33,15 @@ export const Contact_list = styled.ol `
   flex-direction: column;
   justify-content: center;
  `;
+ export const Authorname = styled.p`
+  text-align:center;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+ `;
  export const Paragraph = styled.p`
-  
   min-width: 0;
   white-space: nowrap;
   overflow: hidden;

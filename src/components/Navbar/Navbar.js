@@ -1,8 +1,7 @@
 import React from "react";
 import { reSetAuthedUser } from "../../actions/authedUser";
 import { Nav, Bars, NavLink, NavMenu, NavBtn, NavBtnLink } from "./NavElements";
-import { FaBars } from "react-icons/fa";
-import { Link } from "react-router-dom";
+
 import { connect } from "react-redux";
 const Navbar = (props) => {
   const { user, dispatch } = props;
@@ -19,7 +18,7 @@ const Navbar = (props) => {
       <Bars />
       <NavMenu>
         <NavLink to="/">Home</NavLink>
-        <NavLink to="/add">New Poll</NavLink>
+        <NavLink to="/create">New Poll</NavLink>
         <NavLink to="/About">Leader Board</NavLink>
         <NavLink to="/Projects" />
 
@@ -31,7 +30,7 @@ const Navbar = (props) => {
         <img
           src={user.avatarURL}
           style={{ width: "2rem", height: "2rem", borderRadius: "50%" }}
-        />
+        alt="avatar"/>
         <p style={{ margin: "1rem" }}>{user.name}</p>
       </NavLink>
       <NavBtn>

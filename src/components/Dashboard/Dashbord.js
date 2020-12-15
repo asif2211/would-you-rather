@@ -1,16 +1,14 @@
 import React, { Component } from "react";
-import { Tab, Tabs, TabList, TabPanel, TabPanels } from "react-tabs";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { connect } from "react-redux";
 import "react-tabs/style/react-tabs.css";
 import {
   TabContainer,
-  Contact_list,
-  Contact_list_item,
-  Contact_details,
-  Paragraph,
+  
 } from "./style";
-import { FaBars } from "react-icons/fa";
+
 import Answered from "../Answered/Answered";
+
 
 class Dashbord extends Component {
   render() {
@@ -21,18 +19,21 @@ class Dashbord extends Component {
         <TabContainer className="tab-container">
           <Tabs>
             <TabList>
+            <Tab>UnAnswered</Tab>
               <Tab>Answered</Tab>
-              <Tab>UnAnswered</Tab>
+              
             </TabList>
             <TabPanel>
-              {answeredQuestionIds.map((id) => (
-                <Answered id={id} key={id} title="Answer Poll"/>
-              ))}
+                <Answered listIds={unansweredQuestionIds} 
+                 title="Answer Poll"
+                 emptyListNote="No more Unswered Questions! Time to create some new ones! " />
             </TabPanel>
             <TabPanel>
-            {unansweredQuestionIds.map((id) => (
-                <Answered id={id} key={id} title="Result Poll"/>
-              ))}
+            
+                <Answered listIds={answeredQuestionIds}
+                 title="Result Poll"
+                 emptyListNote="No more Answered Questions! what we should do! " />
+              
              </TabPanel>
           </Tabs>
         </TabContainer>

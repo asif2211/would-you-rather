@@ -70,8 +70,6 @@ export const NavBtn = styled.nav`
 export const NavBtnLink = styled.button`
   border-radius: 4px;
   background: #000; /* fallback for old browsers */
-  
-  padding: 10px 22px;
   color: #fff;
   outline: none;
   border: none;
@@ -80,6 +78,7 @@ export const NavBtnLink = styled.button`
   text-decoration: none;
   /* Second Nav */
   margin-left: 24px;
+  margin-bottom:1rem;
   &:hover {
     transition: all 0.2s ease-in-out;
     background: #fff;

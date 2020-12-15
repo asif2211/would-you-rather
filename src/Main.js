@@ -1,39 +1,30 @@
-import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
+import React, { Component } from "react";
+import { Route } from "react-router-dom";
+import NavigationBar from "./components/Navbar/Navbar";
 
-import NavigationBar from './components/Navbar/Navbar';
-import Home from './components/Dashboard/Dashbord';
-import Login from './pages/Login'
-import NewQuestion from './components/Newquestions/NewQuestions';
-import QuestionPage from './components/Questions/Questions';
-import LeaderBoard from './components/Leaderboard/Leaderboard';
-import Dashbord from './components/Dashboard/Dashbord';
+import NewQuestion from "./components/Newquestions/NewQuestions";
+import Questions from "./components/Questions/Questions";
+import LeaderBoard from "./components/Leaderboard/Leaderboard";
+import Dashbord from "./components/Dashboard/Dashbord";
 // import PageNotFound from './PageNotFound';
-
+import { BrowserRouter as Router } from 'react-router-dom';
 class PrivateApp extends Component {
-	
-	render() {
+  render() {
+    return (
+		<Router>
+      <div>
 		
-	
-	
-		return (
-			
-				<div>
-					<NavigationBar />
-					<main>
-						
-							<Route path="/" exact component={Dashbord} />
-							<Route path="/questions/:id" component={QuestionPage} />
-							<Route path="/add" component={NewQuestion} />
-							<Route path="/leaderboard" component={LeaderBoard} />
-							
-						
-					</main>
-                    </div>
-			
-		);
-	}
+        <NavigationBar />
+        <Route path="/" exact component={Dashbord} />
+        <Route path="/questions/:id" component={Questions} />
+        <Route path="/create" component={NewQuestion} />
+        <Route path="/leaderboard" component={LeaderBoard} />
+		
+      </div>
+	  </Router>
+	  
+    );
+  }
 }
 
 export default PrivateApp;
