@@ -12,11 +12,10 @@ In this app, users are able to ask and answer questions, see which questions the
 6. [react-router-dom](https://www.npmjs.com/package/react-router-dom) :  for handle routes in web apps.
 7. [react-tabs](https://www.npmjs.com/package/react-tabs) :  
 8. [express](https://expressjs.com/en/starter/installing.html) : for backend web applicatin framework for node js.
-9. [Cors](https://www.npmjs.com/package/cors) :  cors is node.js package used to communicate one application server to other and connect express middleware.
-10. [bcryptjs](https://www.npmjs.com/package/bcryptjs) bcryptjs is used for encryption or hashing it used to convert any thing to random string.
-11. [react-progressbar](https://www.npmjs.com/package/react-progressbar)  display user work progress or completion of work.
-12. [redux-thunk](https://www.npmjs.com/package/redux-thunk)  used as middleware for async control, its send ajax request .
-13. [react-redux-loading-bar](https://www.npmjs.com/package/react-redux-loading-bar)  A React component that provides Loading Bar (aka Progress Bar) for long running tasks.
+9. [bcryptjs](https://www.npmjs.com/package/bcryptjs) bcryptjs is used for encryption or hashing it used to convert any thing to random string.
+10. [react-progressbar](https://www.npmjs.com/package/react-progressbar)  display user work progress or completion of work.
+11. [redux-thunk](https://www.npmjs.com/package/redux-thunk)  used as middleware for async control, its send ajax request .
+12. [react-redux-loading-bar](https://www.npmjs.com/package/react-redux-loading-bar)  A React component that provides Loading Bar (aka Progress Bar) for long running tasks.
 
 ## Table of Contents
 
@@ -24,16 +23,6 @@ In this app, users are able to ask and answer questions, see which questions the
 - [Usage](#usage)
 - [Support](#support)
 - [Contributing](#contributing)
-
-## Installation
-
-Download to your project directory, add `README.md`, and commit:
-
-```sh
-curl -LO http://git.io/Xy0Chg
-git add README.md
-git commit -m "Use README Boilerplate"
-```
 
 ## Usage
 

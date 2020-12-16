@@ -35,7 +35,7 @@ code {
   padding: 1rem;
 }
 .create-contact-details {
-  height: 10rem;
+  height: 15rem;
   margin: 0 auto;
   display: flex;
   width: 30rem;
@@ -45,7 +45,7 @@ code {
 }
 .login{
   margin-top: 5rem;
-  
+  height: 100%;
 }
 .danger{
   color: white;
@@ -75,6 +75,7 @@ select{
   border: none;
   border-bottom: 1px solid #ccc;
   outline: 0;
+  height: 100%;
 }
 
 

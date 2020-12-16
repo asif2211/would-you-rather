@@ -19,7 +19,7 @@ const Navbar = (props) => {
       <NavMenu>
         <NavLink to="/">Home</NavLink>
         <NavLink to="/create">New Poll</NavLink>
-        <NavLink to="/About">Leader Board</NavLink>
+        <NavLink to="/leaderboard">Leader Board</NavLink>
         <NavLink to="/Projects" />
 
         {/* Second Nav */}

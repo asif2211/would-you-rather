@@ -4,7 +4,7 @@ import NavigationBar from "./components/Navbar/Navbar";
 
 import NewQuestion from "./components/Newquestions/NewQuestions";
 import Questions from "./components/Questions/Questions";
-import LeaderBoard from "./components/Leaderboard/Leaderboard";
+import Leaderboard from "./components/Leaderboard/Leaderboard";
 import Dashbord from "./components/Dashboard/Dashbord";
 // import PageNotFound from './PageNotFound';
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -18,7 +18,7 @@ class PrivateApp extends Component {
         <Route path="/" exact component={Dashbord} />
         <Route path="/questions/:id" component={Questions} />
         <Route path="/create" component={NewQuestion} />
-        <Route path="/leaderboard" component={LeaderBoard} />
+        <Route path="/leaderboard" component={Leaderboard} />
 		
       </div>
 	  </Router>
