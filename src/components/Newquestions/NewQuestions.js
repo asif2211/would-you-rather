@@ -39,22 +39,28 @@ class NewQuestions extends Component {
     if (toHome === true) return <Redirect to="/" />;
 
     return (
-      <div className="login">
-        <div className="create-contact-details">
+      <div className="poll">
+        <div className="create-poll-details">
           <div>
             <h2>New Poll</h2>
             <div>
               <form onSubmit={this.handleSubmit}>
                 <div>
+                  <div>
+                    <h3>Choice One</h3>
+                  </div>
                   <input 
                    name="optionOne"
                    value={optionOne}
                    onChange={this.handleInputChange}/>
                 </div>
-                <div style={{ textAlign: "center", marginTop: ".5rem" }}>
-                  OR
+                <div style={{ textAlign: "center", margin: ".1rem" }}>
+                  <h3>OR</h3>
                 </div>
                 <div>
+                <div>
+                    <h3>Choice One</h3>
+                  </div>
                   <input 
                    name="optionTwo"
                    value={optionTwo}

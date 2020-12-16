@@ -34,6 +34,20 @@ code {
   border-radius: 50%;
   padding: 1rem;
 }
+.create-poll-details {
+  height: 22rem;
+  margin: 0 auto;
+  display: flex;
+  width: 30rem;
+  border:.1rem solid  darkcyan;
+  justify-content:center;
+  padding:1rem;
+}
+.create-poll-details input{
+  padding-left:.5rem;
+  width: 15rem;
+  height: 2rem;
+}
 .create-contact-details {
   height: 15rem;
   margin: 0 auto;
@@ -42,6 +56,10 @@ code {
   border:.1rem solid  darkcyan;
   justify-content:center;
   padding:1rem;
+}
+.poll{
+  margin-top: 5rem;
+  height: 100%;
 }
 .login{
   margin-top: 5rem;

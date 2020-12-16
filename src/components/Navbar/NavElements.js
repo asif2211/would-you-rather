@@ -9,7 +9,7 @@ export const Nav = styled.nav`
   padding: 0.5rem calc((100vw - 1000px) / 2);
   z-index: 10;
   background: #000; /* fallback for old browsers */
-  
+  flex-wrap:wrap;
   /* Third Nav */
   /* justify-content: flex-start; */
 `;
@@ -50,9 +50,9 @@ export const NavMenu = styled.div`
   /* Third Nav */
   /* width: 100vw;
   white-space: nowrap; */
-  @media screen and (max-width: 1080px) {
+  /* @media screen and (max-width: 1080px) {
     display: none;
-  }
+  } */
 `;
 
 export const NavBtn = styled.nav`

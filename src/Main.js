@@ -17,7 +17,7 @@ class PrivateApp extends Component {
         <NavigationBar />
         <Route path="/" exact component={Dashbord} />
         <Route path="/questions/:id" component={Questions} />
-        <Route path="/create" component={NewQuestion} />
+        <Route path="/add" component={NewQuestion} />
         <Route path="/leaderboard" component={Leaderboard} />
 		
       </div>

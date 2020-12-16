@@ -36,7 +36,7 @@ class Login extends Component {
                   {userNames.map((item) => {
                     return (
                       <option value={item.value} key={item.value}>
-                        {item.value}
+                        {item.label}
                       </option>
                     );
                   })}

@@ -18,7 +18,7 @@ const Navbar = (props) => {
       <Bars />
       <NavMenu>
         <NavLink to="/">Home</NavLink>
-        <NavLink to="/create">New Poll</NavLink>
+        <NavLink to="/add">New Poll</NavLink>
         <NavLink to="/leaderboard">Leader Board</NavLink>
         <NavLink to="/Projects" />
 
@@ -26,7 +26,7 @@ const Navbar = (props) => {
         {/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}
       </NavMenu>
 
-      <NavLink to="/Projects">
+      <NavLink to="/">
         <img
           src={user.avatarURL}
           style={{ width: "2rem", height: "2rem", borderRadius: "50%" }}
