@@ -30,9 +30,13 @@ Replace the contents of `README.md` with your project's:
 - Would You Rather is a fully responsive and mobile-ready polling game that presents the user with a series of questions.
 - `npm install , npm start`
 - user first login, view all answered and unanswered, click on unanswered move to questions, click on answered move to progress report, add new poll , result of each users.
+**To run it locally**
+1. install all project dependencies with `npm install`
+2. start the app with with `npm start` ( Runs the app in the development mode.)
+3. Open http://localhost:3000 to view it in the browser.
 
-
-
+**Create React App**
+This project was bootstrapped with Create React App.
 
 ## Release
 
