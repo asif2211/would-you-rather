@@ -34,8 +34,8 @@ Replace the contents of `README.md` with your project's:
 - user first login, view all answered and unanswered, click on unanswered move to questions, click on answered move to progress report, add new poll , result of each users.
 
 
-Feel free to remove any sections that aren't applicable to your project.
 
-## Support
+
+## Release
 
 Please [open a release](https://github.com/asif2211/would-you-rather).
