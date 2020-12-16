@@ -28,20 +28,14 @@ In this app, users are able to ask and answer questions, see which questions the
 
 Replace the contents of `README.md` with your project's:
 
-- Name
-- Description
-- Installation instructions
-- Usage instructions
-- Support instructions
-- Contributing instructions
-- Licence
+- would you rather
+- Would You Rather is a fully responsive and mobile-ready polling game that presents the user with a series of questions.
+- `npm install , npm start`
+- user first login, view all answered and unanswered, click on unanswered move to questions, click on answered move to progress report, add new poll , result of each users.
+
 
 Feel free to remove any sections that aren't applicable to your project.
 
 ## Support
 
-Please [open an issue](https://github.com/fraction/readme-boilerplate/issues/new) for support.
-
-## Contributing
-
-Please contribute using [Github Flow](https://guides.github.com/introduction/flow/). Create a branch, add commits, and [open a pull request](https://github.com/fraction/readme-boilerplate/compare/).
+Please [open a release](https://github.com/asif2211/would-you-rather).
