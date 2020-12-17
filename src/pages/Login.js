@@ -9,13 +9,13 @@ class Login extends Component {
     }
   }
  handleUserLogin = (e)=>{
-  const userID = this.userID.value;
+  const userId = this.userId.value;
   const { dispatch } = this.props;
    
   e.preventDefault();
-  if(userID!=="")
+  if(userId)
   { 
-    dispatch(getAuthdUsers(userID))
+    dispatch(getAuthdUsers(userId))
   }
   else {
     
@@ -25,8 +25,6 @@ class Login extends Component {
   }
 }
   render() {
-    const {userNames} =  this.props
-    console.log(this.props.usersinfo)
     return (
       <div className="login">
         <div className="create-contact-details">
@@ -37,11 +35,11 @@ class Login extends Component {
               <div style={{marginBottom:'.5rem',color:'red'}}>
                 {this.state.error}
               </div>
-                <select ref= {(id)=> (this.userID = id)}>
+                <select ref= {(id)=> (this.userId = id)}>
                   <option value="">Select User</option>
-                  {this.props.usersinfo.map((item) => (
-											<option value={item.userid} key={item.userid}>
-												{item.username}
+                  {this.props.usersinfo.map((data) => (
+											<option value={data.userid} key={data.userid}>
+												{data.username}
 											</option>
 										))}
                       
