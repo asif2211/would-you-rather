@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { authenticatedUserFun } from "../actions/authedUsers";
+import { getAuthdUsers } from "../actions/authedUsers";
 import { connect } from "react-redux";
 class Login extends Component {
   constructor(){
@@ -8,30 +8,43 @@ class Login extends Component {
       error : ''
     }
   }
- 
-  render() {
+ handleUserLogin = (e)=>{
+  const userID = this.userID.value;
+  const { dispatch } = this.props;
+   
+  e.preventDefault();
+  if(userID!=="")
+  { 
+    dispatch(getAuthdUsers(userID))
+  }
+  else {
     
-
+    this.setState({
+      error : 'Please Select value to get access'
+    }) 
+  }
+}
+  render() {
+    const {userNames} =  this.props
+    console.log(this.props.usersinfo)
     return (
       <div className="login">
         <div className="create-contact-details">
           <div>
             <h2>Login</h2>
             <div>
-              <form onSubmit={this.handleLogin}>
-              
-                <select>
-                  <option>Select User</option>
-                 
-                      <option >
-                        User1
-                      </option>
-                      <option >
-                        User1
-                      </option>
-                      <option >
-                        User1
-                      </option>
+              <form onSubmit={this.handleUserLogin}>
+              <div style={{marginBottom:'.5rem',color:'red'}}>
+                {this.state.error}
+              </div>
+                <select ref= {(id)=> (this.userID = id)}>
+                  <option value="">Select User</option>
+                  {this.props.usersinfo.map((item) => (
+											<option value={item.userid} key={item.userid}>
+												{item.username}
+											</option>
+										))}
+                      
                   
                 </select>
                 <div>
@@ -45,6 +58,14 @@ class Login extends Component {
     );
   }
 }
+// return user info when store is updated then it return a plain object 
+const mapStateToProps = ({users})=>{
+  return {
+    usersinfo : Object.keys(users).map(id=>({
+      userid : id,
+      username : users[id].name
+    }))
+  }
+}
 
-
-export default (Login);
+export default connect(mapStateToProps)(Login);
