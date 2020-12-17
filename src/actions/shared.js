@@ -1,16 +1,18 @@
 import { showLoading, hideLoading } from 'react-redux-loading-bar';
 
 import { getInitialData } from '../api';
-import { receiveUsers } from './users';
-import { receiveQuestions } from './questions';
-
+import { getusers } from './users';
+import { getquestions } from './questions';
+import { getAuthdUsers } from './authedUsers';
+const AuthUser = "sarahedo";
 export function handleInitialData() {
 	return (dispatch) => {
-		dispatch(showLoading());
+		
 		return getInitialData().then(({ users, questions }) => {
-			dispatch(receiveUsers(users));
-			dispatch(receiveQuestions(questions));
-			dispatch(hideLoading());
+			dispatch(getusers(users));
+			dispatch(getquestions(questions));
+			dispatch(getAuthdUsers(AuthUser));
+			
 		});
 	};
 }

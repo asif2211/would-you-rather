@@ -1,36 +1,19 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import Main from "./Main";
-import Login from "./pages/Login";
-import { handleInitialData } from "./actions/shared";
+import Login from './pages/Login'
 class App extends Component {
   componentDidMount() {
-    this.props.dispatch(handleInitialData());
-  }
-  render() {
-    if(this.props.authedUser)
-    {
-      return (
-        <div>
-          <Main/>
-        </div>
-      );
-    }
-    else{
-      return (
-        <div>  
-          <Login/>
-        </div>
-      );
-    }
     
   }
+  render() {
+    
+      return (
+       
+      
+        <div>
+          <Login />
+        </div>
+      )
+    
 }
-function mapStateToProps({ authedUser, loadingBar }) {
-  return {
-    authedUser,
-    loadingBar,
-  };
 }
-
-export default connect(mapStateToProps)(App);
+export default (App);
