@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { getAuthdUsers } from "../actions/authedUsers";
+import { getAuthdUsers } from "../actions/authedUser";
 import { connect } from "react-redux";
 class Login extends Component {
   constructor(){

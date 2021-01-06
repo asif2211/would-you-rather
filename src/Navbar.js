@@ -2,7 +2,7 @@ import React from "react";
 
 import { Nav, Bars, NavLink, NavMenu, NavBtn, NavBtnLink } from "./NavElements";
 import { connect } from "react-redux";
-import {logoutUsers} from './actions/authedUsers';
+import {logoutUsers} from './actions/authedUser';
 const Navbar = (props) => {
 const handleLogout = ()=>{
   const {dispatch} = props;
@@ -17,7 +17,7 @@ const handleLogout = ()=>{
       <NavMenu>
         <NavLink to="/">Home</NavLink>
         <NavLink to="/add">New Poll</NavLink>
-        <NavLink to="/leaderboard">Leader Board</NavLink>
+        <NavLink to="/leading">Leader Board</NavLink>
         <NavLink to="/Projects" />
 
         {/* Second Nav */}
@@ -38,8 +38,8 @@ const handleLogout = ()=>{
   );
 };
 
-const mapStateToProps = ({authedUsers , users}) =>{
-  const userinfo = users[authedUsers]
+const mapStateToProps = ({authedUser , users}) =>{
+  const userinfo = users[authedUser]
   
  return {
   userinfo

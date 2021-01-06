@@ -1,50 +1,82 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 import {
-    Authorname,
-    ContactList,
-    ContactListItem,
-    ContactDetails,
-  } from "./style";
-import { connect } from 'react-redux';
-import {formatDate} from '../../helper'
+  Authorname,
+  ContactList,
+  ContactListItem,
+  ContactDetails,
+} from "./style";
+import { connect } from "react-redux";
+import { formatDate } from "../../helper";
+import { handleCreateAnswer } from "../../actions/questions";
 class UnansweredQuestions extends Component {
-    render() {
-        const id = this.props.match.params.id;
-        const questionId = this.props.questions[id];
-        alert(questionId.optionOne.text)
-        
-        return (
-            <div className="answer-container">
+  constructor() {
+    super();
+    this.state = {
+      valuechoice: "",
+      error: "",
+      toggle: false,
+    };
+  }
+
+  handleOptions = (id, e) => {
+    
+    const answer = this.form.answer.value;
+    
+    const { dispatch } = this.props;
+    e.preventDefault();
+    if (answer !== "") {
+    
+      dispatch(handleCreateAnswer(id,answer))
+     
+    } else {
+      alert('answer is wrong')
+    }
+  };
+  render() {
+   
+    const {questionId} = this.props;
+    const id = questionId.id;
+    
+    return (
+      <div className="answer-container">
         <ContactList className="contact-list">
           <ContactListItem className="contact-list-item">
             <div className="avatar">
-              <Authorname>{this.props.users[questionId.author].name}</Authorname>
-              <img src={this.props.users[questionId.author].avatarURL} className="image" alt="avatar" />
+              <Authorname>
+                {this.props.users[questionId.author].name}
+              </Authorname>
+              <img
+                src={this.props.users[questionId.author].avatarURL}
+                className="image"
+                alt="avatar"
+              />
             </div>
             <ContactDetails>
-              <form>
-                
-                
+              <form
+                onSubmit={(e) => this.handleOptions(id, e)}
+                ref={(ref) => (this.form = ref)}
+              >
+                <div>{this.state.error}</div>
                 <div className="radio-button">
                   <input
                     type="radio"
                     id="optionOne"
-                    value="optionOne"
                     name="answer"
+                    value="optionOne"
                   />{" "}
-                  {questionId.optionOne.text.slice(0,50)}
+                  {questionId.optionOne.text.slice(0, 50)}
                 </div>
                 <div className="radio-button">
-                  <input
-                    type="radio"
-                    value="optionTwo"
-                    name="answer"
-                  />{" "}
-                  {questionId.optionTwo.text.slice(0,50)}
+                  <input 
+                  type="radio" 
+                  name="answer" 
+                  value="optionTwo" 
+                  id="optionTwo"/>{" "}
+                  {questionId.optionTwo.text.slice(0, 50)}
                 </div>
 
                 <div className="radio-button">
-                  <button>Vote</button>
+                  <button >Vote</button>
                 </div>
               </form>
             </ContactDetails>
@@ -52,16 +84,16 @@ class UnansweredQuestions extends Component {
           </ContactListItem>
         </ContactList>
       </div>
-        )
-    }
+    );
+  }
 }
 
-const mapStateToProps = ({questions,users}) => {
-    
-    return {
-        questions ,
-        users
-    }
-}
+const mapStateToProps = ({ questions, users },{id}) => {
+  const questionId = questions[id]
+  return {
+    questionId,
+    users,
+  };
+};
 
-export default connect(mapStateToProps)(UnansweredQuestions)
+export default connect(mapStateToProps)(UnansweredQuestions);

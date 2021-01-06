@@ -1,6 +1,6 @@
-import { AUTHENTICATE_USER, UN_AUTHENTICATE_USER} from '../actions/authedUsers';
+import { AUTHENTICATE_USER, UN_AUTHENTICATE_USER} from '../actions/authedUser';
 
-export default function authedUsers(state = null, action) {
+export default function authedUser(state = null, action) {
 	switch (action.type) {
 		case AUTHENTICATE_USER:
 			return action.id;

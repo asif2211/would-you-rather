@@ -2,10 +2,13 @@ import React, { Component } from "react";
 import Login from "./pages/Login";
 import { handleInitialData } from "./actions/shared";
 import { connect } from "react-redux";
-import {BrowserRouter as Router,Route} from 'react-router-dom'
-import Navbar from './Navbar';
-import HomePage from './components/HomePage/HomePage'
-import UnansweredQuestions from "./components/UnansweredQuestions/UnansweredQuestions";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Navbar from "./Navbar";
+import HomePage from "./components/HomePage/HomePage";
+import CreateQuestions from "./components/CreateQuestions/CreateQuestions";
+import LeadingPersons from "./components/LeadingPersons/LeadingPersons";
+import QuestionsSelections from "./components/QuestionsSelection/QuestionsSelections";
+import LoadingBar from 'react-redux-loading'
 class App extends Component {
   //connect redux to react app
   componentDidMount() {
@@ -14,16 +17,20 @@ class App extends Component {
   render() {
     return (
       <div>
-        {!this.props.authedUsers ? (
+         
+        {!this.props.authedUser ? (
           <Login />
         ) : (
           <Router>
             <div>
-              <Navbar/>
+            
+              <Navbar />
+              <LoadingBar/>
               <Route path="/" exact component={HomePage} />
-              <Route path="/questions/:id" component={UnansweredQuestions} />
-        {<Route path="/add" component={NewQuestion} /> }
-        {/* <Route path="/leaderboard" component={Leaderboard} /> */}
+              <Route path="/questions/:id" component={QuestionsSelections} />
+              {<Route path="/add" component={CreateQuestions} />}
+              {/* <Route path="/results/:id" component={AnswersResults} /> */}
+              <Route path="/leading" component={LeadingPersons} />
             </div>
           </Router>
         )}
@@ -31,9 +38,9 @@ class App extends Component {
     );
   }
 }
-const mapStateToProps = ({ authedUsers }) => {
+const mapStateToProps = ({ authedUser }) => {
   return {
-    authedUsers,
+    authedUser,
   };
 };
 export default connect(mapStateToProps)(App);

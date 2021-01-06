@@ -15,8 +15,7 @@ import {
 
 class HomePage extends Component {
   render() {
-    alert(this.props.value);
-    alert(this.props.authorname);
+    
     return (
       <div>
         <hr />
@@ -26,13 +25,14 @@ class HomePage extends Component {
               <Tab>UnAnswered</Tab>
               <Tab>Answered</Tab>
             </TabList>
-            <TabPanel>{this.props.unansvalue.map((item,index) => (
+            <TabPanel>
+            {this.props.unansvalue.map((item,index) => (
                 <ContactList className="contact-list" key={index}>
                   <ContactListItem className="contact-list-item">
                     <div className="avatar">
-                      <Authorname>{item.author}</Authorname>
+                      <Authorname>{item.author} {"  "}Ask</Authorname>
                       <img
-                        src={this.props.authorname[item.author].avatarURL}
+                        src={this.props.unansauthor[item.author].avatarURL}
                         className="image"
                         alt="avatar"
                       />
@@ -50,15 +50,16 @@ class HomePage extends Component {
                     <div>{formatDate(item.timestamp)}</div>
                   </ContactListItem>
                 </ContactList>
-              ))}</TabPanel>
+              ))}
+            </TabPanel>
             <TabPanel>
               {this.props.value.map((item) => (
                 <ContactList className="contact-list" key={item.id}>
                   <ContactListItem className="contact-list-item">
                     <div className="avatar">
-                      <Authorname>{item.author}</Authorname>
+              <Authorname>{item.author}</Authorname>
                       <img
-                        src={this.props.authorname[item.author].avatarURL}
+                        src={this.props.author[item.author].avatarURL}
                         className="image"
                         alt="avatar"
                       />
@@ -68,7 +69,7 @@ class HomePage extends Component {
                       <Paragraph>{item.optionOne.text.slice(0, 50)}</Paragraph>
                       <Paragraph>or ...</Paragraph>
                       <div>
-                        <LinkBtn className="button" to={`/questions/${this.props.authorname[item.author].id}`}>
+                        <LinkBtn className="button" to={`/questions/${item.id}`}>
                           Answered
                         </LinkBtn>
                       </div>
@@ -84,20 +85,27 @@ class HomePage extends Component {
     );
   }
 }
-const mapStateToProps = ({ authedUsers, questions, users }) => {
+const mapStateToProps = ({ authedUser, questions, users }) => {
   // geting answerid and value objects on the basis of authedUsers when questions id match wiht  authedUsers answer id.
   const answeredId = Object.keys(questions).filter((id) =>
-    users[authedUsers].answers.hasOwnProperty(id)).sort((a,b) => questions[b].timestamp - questions[a].timestamp)
+    users[authedUser].answers.hasOwnProperty(id)).sort((a,b) => questions[b].timestamp - questions[a].timestamp)
   
   const value = answeredId.map((id) => questions[id]);
   
+  const author = users
+  
 // geting Unanswerid and value objects on the basis of not match authedUsers wiht authedUsers answer id.
   const unansweredId = Object.keys(questions).filter((id) =>
-    !users[authedUsers].answers.hasOwnProperty(id)).sort((a,b) => questions[b].timestamp - questions[a].timestamp)
+    !users[authedUser].answers.hasOwnProperty(id)).sort((a,b) => questions[b].timestamp - questions[a].timestamp)
     ;
   const unansvalue = unansweredId.map((id) => questions[id]);
-  const authorname = users;
-  return { value, authorname ,unansvalue};
+  const unansauthor = users;
+  return {
+    value,
+    author,
+    unansvalue,unansauthor
+  }
+  
 };
 
 export default connect(mapStateToProps)(HomePage);
