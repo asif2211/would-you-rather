@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { getAuthdUsers } from "../actions/authedUser";
 import { connect } from "react-redux";
+import Navbar from "../Navbar";
 class Login extends Component {
   constructor(){
     super();
@@ -26,7 +27,10 @@ class Login extends Component {
 }
   render() {
     return (
+      <div>
+      
       <div className="login">
+        
         <div className="create-contact-details">
           <div>
             <h2>Login</h2>
@@ -52,6 +56,7 @@ class Login extends Component {
             </div>
           </div>
         </div>
+      </div>
       </div>
     );
   }

@@ -8,7 +8,8 @@ import HomePage from "./components/HomePage/HomePage";
 import CreateQuestions from "./components/CreateQuestions/CreateQuestions";
 import LeadingPersons from "./components/LeadingPersons/LeadingPersons";
 import QuestionsSelections from "./components/QuestionsSelection/QuestionsSelections";
-import LoadingBar from 'react-redux-loading'
+import LoadingBar from 'react-redux-loading';
+import {Fragment} from 'react'
 class App extends Component {
   //connect redux to react app
   componentDidMount() {
@@ -16,16 +17,19 @@ class App extends Component {
   }
   render() {
     return (
+      <Fragment>
+      <LoadingBar/>
       <div>
          
         {!this.props.authedUser ? (
+          
           <Login />
         ) : (
           <Router>
             <div>
             
               <Navbar />
-              <LoadingBar/>
+              
               <Route path="/" exact component={HomePage} />
               <Route path="/questions/:id" component={QuestionsSelections} />
               {<Route path="/add" component={CreateQuestions} />}
@@ -35,6 +39,7 @@ class App extends Component {
           </Router>
         )}
       </div>
+      </Fragment>
     );
   }
 }

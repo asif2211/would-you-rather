@@ -8,6 +8,7 @@ import {
 import { connect } from "react-redux";
 import { formatDate } from "../../helper";
 import { handleCreateAnswer } from "../../actions/questions";
+import ErrorMessge from "../ErrorMessge";
 class UnansweredQuestions extends Component {
   constructor() {
     super();
@@ -29,14 +30,19 @@ class UnansweredQuestions extends Component {
       dispatch(handleCreateAnswer(id,answer))
      
     } else {
-      alert('answer is wrong')
+      this.setState({
+        error:"404 return to home page"
+      })
     }
   };
   render() {
    
-    const {questionId} = this.props;
-    const id = questionId.id;
-    
+    const {questionId,users} = this.props;
+    if(questionId == null)
+    {
+      return <ErrorMessge/>
+    }
+     else{
     return (
       <div className="answer-container">
         <ContactList className="contact-list">
@@ -53,7 +59,7 @@ class UnansweredQuestions extends Component {
             </div>
             <ContactDetails>
               <form
-                onSubmit={(e) => this.handleOptions(id, e)}
+                onSubmit={(e) => this.handleOptions(questionId.id, e)}
                 ref={(ref) => (this.form = ref)}
               >
                 <div>{this.state.error}</div>
@@ -84,16 +90,22 @@ class UnansweredQuestions extends Component {
           </ContactListItem>
         </ContactList>
       </div>
-    );
+    ) 
+    ;
+     }
   }
 }
 
 const mapStateToProps = ({ questions, users },{id}) => {
-  const questionId = questions[id]
-  return {
-    questionId,
-    users,
-  };
+  
+    const questionId = questions[id];
+    return {
+      questionId,
+      users,
+    };
+  
+  
+ 
 };
 
 export default connect(mapStateToProps)(UnansweredQuestions);
